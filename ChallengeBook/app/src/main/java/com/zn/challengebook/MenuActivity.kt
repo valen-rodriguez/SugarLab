@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.zn.challengebook.anagrama.AnagramaActivity
 import com.zn.challengebook.fizzbuzz.FizzBuzzActivity
+import com.zn.challengebook.rsp.RockPaperScissorsActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +17,11 @@ class MenuActivity : AppCompatActivity() {
 
         val fizzBuzzBtn = findViewById<Button>(R.id.fizzBuzzBtn)
         val anagramaBtn = findViewById<Button>(R.id.anagramaBtn)
+        val rpsBtn = findViewById<Button>(R.id.rpsBtn)
 
         fizzBuzzBtn.setOnClickListener { navigateToFizzBuzzApp() }
         anagramaBtn.setOnClickListener { navigateToAnagramaApp() }
+        rpsBtn.setOnClickListener { navigateToRPSApp() }
 
     }
 
@@ -32,5 +33,10 @@ class MenuActivity : AppCompatActivity() {
     fun navigateToAnagramaApp(){
         val anagramaAct = Intent(this, AnagramaActivity::class.java)
         startActivity(anagramaAct)
+    }
+
+    fun navigateToRPSApp(){
+        val rpsAct = Intent(this, RockPaperScissorsActivity::class.java)
+        startActivity(rpsAct)
     }
 }
