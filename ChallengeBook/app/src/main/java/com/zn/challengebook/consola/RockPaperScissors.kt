@@ -33,7 +33,7 @@ fun main() {
 
 }
 
-fun quienGana(player1: String, player2: String): String {
+private fun quienGana(player1: String, player2: String): String {
 
     val jugador1 = "El ganador es el Jugador 1"
     val jugador2 = "El ganador es el Jugador 2"
