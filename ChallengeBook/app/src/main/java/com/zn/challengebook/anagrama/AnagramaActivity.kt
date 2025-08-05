@@ -25,13 +25,12 @@ class AnagramaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_anagrama)
         initComponents()
 
-        val word1: Editable? = tiWord1.text
-        val word2: Editable? = tiWord2.text
-        val word1Lower = word1.toString().lowercase()
-        val word2Lower = word2.toString().lowercase()
-
-
         btnEsAnagrama.setOnClickListener {
+
+            val word1: Editable? = tiWord1.text
+            val word2: Editable? = tiWord2.text
+            val word1Lower = word1.toString().lowercase()
+            val word2Lower = word2.toString().lowercase()
 
             if (word1Lower == null || word2Lower == null) {
                 tvEsAnagrama.text = "No es anagrama"
@@ -43,22 +42,19 @@ class AnagramaActivity : AppCompatActivity() {
                 val arrayWord1 = word1Lower.toCharArray().sortedArray()
                 val arrayWord2 = word2Lower.toCharArray().sortedArray()
 
-                if (arrayWord1.contentEquals(arrayWord2)){
+                if (arrayWord1.contentEquals(arrayWord2)) {
                     tvEsAnagrama.text = "Es anagrama"
+                }else{
+                    tvEsAnagrama.text = "No es anagrama"
+                }
             }
-
         }
-
-
     }
 
-
-}
-
-private fun initComponents() {
-    tiWord1 = findViewById(R.id.tiWord1)
-    tiWord2 = findViewById(R.id.tiWord2)
-    btnEsAnagrama = findViewById(R.id.btnEsAnagrama)
-    tvEsAnagrama = findViewById(R.id.tvEsAnagrama)
-}
+    private fun initComponents() {
+        tiWord1 = findViewById(R.id.tiWord1)
+        tiWord2 = findViewById(R.id.tiWord2)
+        btnEsAnagrama = findViewById(R.id.btnEsAnagrama)
+        tvEsAnagrama = findViewById(R.id.tvEsAnagrama)
+    }
 }
