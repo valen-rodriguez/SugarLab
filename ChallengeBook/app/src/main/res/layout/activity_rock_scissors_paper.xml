@@ -27,7 +27,7 @@
                 android:fontFamily="monospace"
                 android:text="Piedra, Papel o Tijeras"
                 android:textColor="@color/white"
-                android:textSize="29sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView

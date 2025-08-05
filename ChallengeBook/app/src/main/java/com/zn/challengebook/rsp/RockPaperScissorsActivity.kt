@@ -78,10 +78,10 @@ class RockPaperScissorsActivity : AppCompatActivity() {
 
         //jugador2 selecciona tijera
         viewPlayer2Scissors.setOnClickListener {
+            player2Selection = "S"
             viewPlayer2Scissors.setCardBackgroundColor(setSelectedColor())
             viewPlayer2Rock.setCardBackgroundColor(setUnselectedColor())
             viewPlayer2Paper.setCardBackgroundColor(setUnselectedColor())
-            player2Selection = "S"
         }
 
         btnJugar.setOnClickListener {
@@ -107,7 +107,7 @@ class RockPaperScissorsActivity : AppCompatActivity() {
     }
 
     private fun setUnselectedColor(): Int {
-        val colorReference = R.color.secondary_color
+        val colorReference = R.color.card_background_color
         return ContextCompat.getColor(this, colorReference)
     }
 
