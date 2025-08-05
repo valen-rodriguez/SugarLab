@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBook">
         <activity
+            android:name=".rsp.RockScissorsPaperActivity"
+            android:exported="false" />
+        <activity
             android:name=".EjemploActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context=".MenuActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="@color/card_background_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Piedra, Papel o Tijeras"
+                android:textColor="@color/white"
+                android:textSize="29sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Hecho por: Valentin Rodriguez"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!--     Jugador 1 eleccion-->
+    <TextView
+        android:id="@+id/tvPlayer1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Jugador 1"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <!--    Piedra-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer1Rock"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/secondary_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer1">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_piedra" />
+    </androidx.cardview.widget.CardView>
+
+    <!--    papel-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer1Paper"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/card_background_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toRightOf="@id/viewPlayer1Rock"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer1">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_paper" />
+    </androidx.cardview.widget.CardView>
+
+    <!--    tijera-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer1Scissors"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/card_background_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toRightOf="@id/viewPlayer1Paper"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer1">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_scissors" />
+    </androidx.cardview.widget.CardView>
+
+    <!--     Jugador 1 eleccion-->
+    <TextView
+        android:id="@+id/tvPlayer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Jugador 2"
+        android:textColor="@color/white"
+        android:textSize="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPlayer1Rock" />
+
+    <!--    Piedra-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer2Rock"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/secondary_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer2">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_piedra" />
+    </androidx.cardview.widget.CardView>
+
+    <!--    papel-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer2Paper"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/card_background_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toRightOf="@id/viewPlayer1Rock"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer2">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_paper" />
+    </androidx.cardview.widget.CardView>
+
+    <!--    tijera-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewPlayer2Scissors"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardBackgroundColor="@color/card_background_color"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toRightOf="@id/viewPlayer1Paper"
+        app:layout_constraintTop_toBottomOf="@id/tvPlayer2">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_scissors" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
