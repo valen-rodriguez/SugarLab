@@ -26,20 +26,23 @@ class FizzBuzzActivity : AppCompatActivity() {
 
         initComponents()
 
+        //RangeSlider del numero
         rsNumberSelected.addOnChangeListener { _, value, _ ->
+
             val numberSelected = value.toInt()
 
+            //si no es multiplo de 3 o 5 se imprime solo el num
             if (numberSelected % 3 != 0 && numberSelected % 5  != 0 ){
                 tvFizzOrBuzz.text = ""
             }else if (numberSelected % 3 == 0 && numberSelected % 5 == 0 ){
-                tvFizzOrBuzz.text = "FizzBuzz"
+                tvFizzOrBuzz.text = "FizzBuzz" //si es multiplo de 3 y 5 se imprime Fizzbuzz
             }else if (numberSelected % 3 == 0){
-                tvFizzOrBuzz.text = "Fizz"
+                tvFizzOrBuzz.text = "Fizz" //si es multiplo de 3 se imprime Fizz
             }else{
-                tvFizzOrBuzz.text = "Buzz"
+                tvFizzOrBuzz.text = "Buzz" //si es multiplo de 3 y 5 se imprime Buzz
             }
 
-
+            //Muestra el numero en pantalla
             tvNumberSelected.text = numberSelected.toString()
         }
 

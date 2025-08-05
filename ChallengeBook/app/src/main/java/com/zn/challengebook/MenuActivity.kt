@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.zn.challengebook.anagrama.AnagramaActivity
 import com.zn.challengebook.fizzbuzz.FizzBuzzActivity
 
 class MenuActivity : AppCompatActivity() {
@@ -16,13 +17,20 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         val fizzBuzzBtn = findViewById<Button>(R.id.fizzBuzzBtn)
+        val anagramaBtn = findViewById<Button>(R.id.anagramaBtn)
 
         fizzBuzzBtn.setOnClickListener { navigateToFizzBuzzApp() }
+        anagramaBtn.setOnClickListener { navigateToAnagramaApp() }
 
     }
 
     fun navigateToFizzBuzzApp(){
         val fizzBuzzAct = Intent(this, FizzBuzzActivity::class.java)
         startActivity(fizzBuzzAct)
+    }
+
+    fun navigateToAnagramaApp(){
+        val anagramaAct = Intent(this, AnagramaActivity::class.java)
+        startActivity(anagramaAct)
     }
 }

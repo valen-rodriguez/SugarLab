@@ -59,11 +59,12 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/anagramaBtn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/card_background_color"
             android:fontFamily="monospace"
-            android:text="Fizz buzz"
+            android:text="¿Es un anagrama?"
             android:textSize="16sp"
             android:textStyle="bold" />
 
