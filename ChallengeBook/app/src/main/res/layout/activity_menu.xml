@@ -96,11 +96,12 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/rpsBtn"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/card_background_color"
             android:fontFamily="monospace"
-            android:text="Fizz buzz"
+            android:text="Piedra, papel o tijeras"
             android:textSize="16sp"
             android:textStyle="bold" />
 
