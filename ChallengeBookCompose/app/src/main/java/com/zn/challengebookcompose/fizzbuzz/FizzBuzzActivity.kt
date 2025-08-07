@@ -49,7 +49,7 @@ private fun ViewContainer() {
 }
 
 @Composable
-fun ContentFizzBuzz(
+private fun ContentFizzBuzz(
     onAnagrama: () -> Unit
 ) {
     LazyColumn(
