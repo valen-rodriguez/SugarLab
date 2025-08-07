@@ -18,13 +18,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.anagrama.AnagramaActivity
-import com.zn.challengebookcompose.fizzbuzz.componentes.ComoJugar
 import com.zn.challengebookcompose.fizzbuzz.componentes.RangeSlider1To100
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
-import kotlin.contracts.contract
+import com.zn.challengebookcompose.ui.theme.componentesgenerales.TextoNormal
 
 class FizzBuzzActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,12 +38,12 @@ class FizzBuzzActivity : ComponentActivity() {
 @Preview
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ViewContainer() {
+private fun ViewContainer() {
     val context = LocalContext.current
     Scaffold(
         topBar = { BarraSuperior("FizzBuzz", card_background_color) },
         content = { ContentFizzBuzz(
-            onAnagrama = context.startActivity(Intent(context, AnagramaActivity::class.java))
+            onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) }
         ) }
     )
 }
@@ -60,13 +59,17 @@ fun ContentFizzBuzz(
             .padding( 10.dp, top = 100.dp, end = 10.dp)
     ) {
         item {
-            ComoJugar()
+            TextoNormal("Múltiplos de 3 por la palabra \"fizz\".\n" +
+                    "Múltiplos de 5 por la palabra \"buzz\".\n" +
+                    "Múltiplos de 3 y de 5 a la vez por la palabra \"fizzbuzz\"",
+                Modifier.padding(top = 10.dp))
+
             RangeSlider1To100()
             BotonMenu(
-                texto = "Siguiente",
+                texto = "Siguiente Ejercicio",
                 color = card_background_color,
                 onClick = onAnagrama,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 40.dp),
                 )
         }
     }

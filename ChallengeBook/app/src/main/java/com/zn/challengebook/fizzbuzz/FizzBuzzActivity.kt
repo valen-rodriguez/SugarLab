@@ -39,7 +39,7 @@ class FizzBuzzActivity : AppCompatActivity() {
             }else if (numberSelected % 3 == 0){
                 tvFizzOrBuzz.text = "Fizz" //si es multiplo de 3 se imprime Fizz
             }else{
-                tvFizzOrBuzz.text = "Buzz" //si es multiplo de 3 y 5 se imprime Buzz
+                tvFizzOrBuzz.text = "Buzz" //si es multiplo de 5 se imprime Buzz
             }
 
             //Muestra el numero en pantalla

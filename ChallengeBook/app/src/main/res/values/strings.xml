@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChallengeBook</string>
+    <string name="title_activity_poligono">PoligonoActivity</string>
 </resources>

@@ -1,11 +1,9 @@
-package com.zn.challengebookcompose.fizzbuzz.componentes
+package com.zn.challengebookcompose.ui.theme.componentesgenerales
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,18 +15,16 @@ import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.white
 
 @Composable
-fun ComoJugar() {
+fun TextoNormal(texto: String, modifier: Modifier) {
 
     Column(modifier = Modifier.fillMaxSize().background(background_color)){
         Text(
-            text = "Múltiplos de 3 por la palabra \"fizz\".\n" +
-                    "Múltiplos de 5 por la palabra \"buzz\".\n" +
-                    "Múltiplos de 3 y de 5 a la vez por la palabra \"fizzbuzz\"",
+            text = texto,
             color = white,
             fontFamily = FontFamily.Monospace,
             textAlign = TextAlign.Center,
             fontSize = 16.sp,
-            modifier = Modifier.padding(vertical = 40.dp)
+            modifier = modifier
         )
     }
 

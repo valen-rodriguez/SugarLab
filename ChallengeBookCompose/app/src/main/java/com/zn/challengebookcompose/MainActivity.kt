@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.zn.challengebookcompose.anagrama.AnagramaActivity
 import com.zn.challengebookcompose.fizzbuzz.FizzBuzzActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
@@ -34,9 +35,8 @@ class MainActivity : ComponentActivity() {
             val context = LocalContext.current
 
             ViewContainer(
-                onFizzbuzz = {
-                    context.startActivity(Intent(context, FizzBuzzActivity::class.java))
-                }
+                onFizzbuzz = { context.startActivity(Intent(context, FizzBuzzActivity::class.java)) },
+                onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) }
             )
         }
     }
@@ -45,7 +45,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 private fun ViewContainer(
-    onFizzbuzz:() -> Unit
+    onFizzbuzz:() -> Unit,
+    onAnagrama:() -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -70,15 +71,13 @@ private fun ViewContainer(
                     onClick = onFizzbuzz,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
+
                 BotonMenu(
                     texto = "Anagrama",
                     color = card_background_color,
-                    onClick = onFizzbuzz,
+                    onClick = onAnagrama,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
-
-
-
 
                 Spacer(modifier = Modifier.height(16.dp)) // Espacio inferior
             }

@@ -12,19 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBookCompose">
         <activity
-            android:name=".anagrama.AnagramaActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ChallengeBookCompose">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".fizzbuzz.FizzBuzzActivity" />
+        <activity android:name=".anagrama.AnagramaActivity" />
     </application>
 
 </manifest>

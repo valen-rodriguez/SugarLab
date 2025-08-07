@@ -9,7 +9,20 @@ fun main() {
         var poligono: Int = readlnOrNull()?.toInt() ?: -1
 
         when (poligono) {
-            in 1..3 -> {
+
+            //cuadrado
+            2 -> {
+                var base: Double
+                do {
+                    println("Ingrese un lado del cuadrado en cm")
+                    base = readlnOrNull()?.toDouble() ?: -1.00
+                } while (base.toInt() == 0 && base > 0.00)
+
+                println(calcularAreaPoligono(poligono, base, 1.00))
+            }
+
+            //triangulo y rectangulo
+            1 and 3 -> {
 
                 var base: Double
                 var altura: Double
@@ -25,8 +38,10 @@ fun main() {
                 println(calcularAreaPoligono(poligono, base, altura))
             }
 
+            //salir
             4 -> {}
 
+            //repite hasta que seleccione una opcion correcta
             -1 -> {
                 while (poligono == -1) {
                     println("Ingrese 1 para Triángulo, 2 para Cuadrado, 3 para Rectángulo")
@@ -35,6 +50,7 @@ fun main() {
                 }
             }
 
+            //repite hasta que seleccione una opcion correcta
             else -> while (poligono != 1 && poligono != 2 && poligono != 3) {
                 println("Ingrese 1 para Triángulo, 2 para Cuadrado, 3 para Rectángulo")
 
@@ -54,13 +70,14 @@ fun calcularAreaPoligono(poligono: Int, base: Double, altura: Double): String {
             return "El area del triangulo es $area"
         }
 
-        in 2..3 -> {
+        2 -> {
+            area = base * base
+            return "El area del cuadrado es $area"
+        }
+
+        3 -> {
             area = base * altura
-            if (poligono == 2) {
-                return "El area del cuadrado es $area"
-            } else {
-                return "El area del rectangulo es $area"
-            }
+            return "El area del rectangulo es $area"
         }
 
         else -> {
