@@ -62,7 +62,7 @@ private fun ContentFizzBuzz(
             TextoNormal("Múltiplos de 3 por la palabra \"fizz\".\n" +
                     "Múltiplos de 5 por la palabra \"buzz\".\n" +
                     "Múltiplos de 3 y de 5 a la vez por la palabra \"fizzbuzz\"",
-                Modifier.padding(top = 10.dp))
+                Modifier.padding(top = 10.dp, bottom = 30.dp))
 
             RangeSlider1To100()
             BotonMenu(

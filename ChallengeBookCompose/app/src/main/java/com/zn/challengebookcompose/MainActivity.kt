@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.anagrama.AnagramaActivity
 import com.zn.challengebookcompose.fizzbuzz.FizzBuzzActivity
+import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperiorMenu
@@ -36,7 +37,9 @@ class MainActivity : ComponentActivity() {
 
             ViewContainer(
                 onFizzbuzz = { context.startActivity(Intent(context, FizzBuzzActivity::class.java)) },
+                onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) },
                 onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) }
+
             )
         }
     }
@@ -46,6 +49,7 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 private fun ViewContainer(
     onFizzbuzz:() -> Unit,
+    onPoligono:() -> Unit,
     onAnagrama:() -> Unit
 ) {
     Scaffold(
@@ -69,6 +73,34 @@ private fun ViewContainer(
                     texto = "FizzBuzz",
                     color = card_background_color,
                     onClick = onFizzbuzz,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                )
+
+                BotonMenu(
+                    texto = "Anagrama",
+                    color = card_background_color,
+                    onClick = onAnagrama,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                )
+
+                BotonMenu(
+                    texto = "Poligono",
+                    color = card_background_color,
+                    onClick = onPoligono,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                )
+
+                BotonMenu(
+                    texto = "Anagrama",
+                    color = card_background_color,
+                    onClick = onAnagrama,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                )
+
+                BotonMenu(
+                    texto = "Anagrama",
+                    color = card_background_color,
+                    onClick = onAnagrama,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 
