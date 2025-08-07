@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.zn.challengebookcompose.ui.theme.white
 
@@ -25,7 +26,7 @@ fun BarraSuperior(titulo: String, backgroundColor: Color, showback: Boolean = tr
 
     CenterAlignedTopAppBar(
         title = {
-            Text(text = titulo, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold, fontSize = 32.sp, color = white)
+            Text(text = titulo, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold, fontSize = 32.sp, color = white, textAlign = TextAlign.Center)
         },
         navigationIcon = {
             if (showback) {

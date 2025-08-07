@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.anagrama.AnagramaActivity
+import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.fizzbuzz.FizzBuzzActivity
 import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.ui.theme.background_color
@@ -38,7 +39,8 @@ class MainActivity : ComponentActivity() {
             ViewContainer(
                 onFizzbuzz = { context.startActivity(Intent(context, FizzBuzzActivity::class.java)) },
                 onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) },
-                onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) }
+                onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) },
+                onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))}
 
             )
         }
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
 private fun ViewContainer(
     onFizzbuzz:() -> Unit,
     onPoligono:() -> Unit,
+    onCarrera:() -> Unit,
     onAnagrama:() -> Unit
 ) {
     Scaffold(
@@ -91,9 +94,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Anagrama",
+                    texto = "Carrera de Obstáculos",
                     color = card_background_color,
-                    onClick = onAnagrama,
+                    onClick = onCarrera,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 

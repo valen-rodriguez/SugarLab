@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBookCompose">
         <activity
-            android:name=".poligono.PoligonoActivity"
-            android:exported="false" />
+            android:name=".carrera.CarreraActivity" />
+        <activity
+            android:name=".poligono.PoligonoActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
