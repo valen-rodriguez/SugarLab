@@ -11,10 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBookCompose">
-        <activity
-            android:name=".carrera.CarreraActivity" />
-        <activity
-            android:name=".poligono.PoligonoActivity"/>
+        <activity android:name=".carrera.CarreraActivity" />
+        <activity android:name=".poligono.PoligonoActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
