@@ -23,7 +23,6 @@ import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
-import com.zn.challengebookcompose.ui.theme.componentesgenerales.TextoNormal
 
 class AnagramaActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

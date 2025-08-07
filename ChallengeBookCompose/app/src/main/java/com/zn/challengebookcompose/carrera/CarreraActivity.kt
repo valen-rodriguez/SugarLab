@@ -31,7 +31,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -44,12 +43,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.zn.challengebookcompose.R
-import com.zn.challengebookcompose.anagrama.componentes.esAnagrama
 import com.zn.challengebookcompose.carrera.componentes.BotonCorrerSaltar
 import com.zn.challengebookcompose.carrera.componentes.CardCarrera
+import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
+import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.TextoNormal
 import com.zn.challengebookcompose.ui.theme.secondary_color
 import com.zn.challengebookcompose.ui.theme.white
@@ -73,13 +73,15 @@ private fun ViewContainer() {
     Scaffold(
         topBar = { BarraSuperior("Carrera de obstáculos", card_background_color) },
         content = {
-            ContentCarrera()
+            ContentCarrera(onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) })
         }
     )
 }
 
 @Composable
-fun ContentCarrera() {
+fun ContentCarrera(
+    onConjuntos: () -> Unit
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -96,12 +98,10 @@ fun ContentCarrera() {
                     .padding(bottom = 20.dp)
             )
 
-            val coroutineScope = rememberCoroutineScope()
             var resultadoRandomImg by remember { mutableIntStateOf(Random.nextInt(0, 2)) }
             var counter by remember { mutableIntStateOf(0) }
             var perdio by remember { mutableStateOf(false) }
-            var isClickEnabled by remember { mutableStateOf(true) }
-            var animationKey by remember { mutableStateOf(0) }
+            var animationKey by remember { mutableIntStateOf(0) }
 
             val resultadoAnimado = Pair(animationKey, resultadoRandomImg)
 
@@ -189,9 +189,14 @@ fun ContentCarrera() {
                     modifier = Modifier.padding(top = 20.dp, end = 15.dp, start = 15.dp)
                         .fillMaxWidth()){
                     Text("Volver a jugar")
-
-
                 }
+
+                BotonMenu(
+                    texto = "Siguiente Ejercicio",
+                    color = card_background_color,
+                    onClick = onConjuntos,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 40.dp),
+                )
             }
         }
     }

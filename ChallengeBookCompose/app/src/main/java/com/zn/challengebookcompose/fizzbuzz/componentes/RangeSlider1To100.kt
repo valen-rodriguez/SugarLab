@@ -41,7 +41,7 @@ fun RangeSlider1To100() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        var valueSlider = sliderPosition.toInt()
+        val valueSlider = sliderPosition.toInt()
         Text(
             text = "Número seleccionado:",
             textAlign = TextAlign.Center,
