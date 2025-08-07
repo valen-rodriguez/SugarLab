@@ -23,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,8 +33,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.zn.challengebookcompose.R
 import com.zn.challengebookcompose.anagrama.componentes.esAnagrama
 import com.zn.challengebookcompose.poligono.componentes.BotonFigura
@@ -43,6 +47,7 @@ import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.TextoNormal
 import com.zn.challengebookcompose.ui.theme.secondary_color
+import com.zn.challengebookcompose.ui.theme.white
 
 class PoligonoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,8 +75,9 @@ private fun ViewContainer() {
 private fun ContentPoligono() {
 
     var botonSeleccionado by remember { mutableStateOf("square") }
-    var baseLado by remember { mutableIntStateOf(0) }
-    var altura by remember { mutableIntStateOf(0) }
+    var baseLado by remember { mutableDoubleStateOf(0.00) }
+    var altura by remember { mutableDoubleStateOf(0.00) }
+    var areaPoligonoString by remember { mutableStateOf("") }
 
 
     LazyColumn(
@@ -116,7 +122,7 @@ private fun ContentPoligono() {
                         .height(100.dp)
                         .clip(RoundedCornerShape(10.dp))
                 )
-                //cuadrado
+                //cuadrado11
                 BotonFigura(
                     icon = painterResource(id = R.drawable.ic_square),
                     activeBackgroundColor = secondary_color,
@@ -129,20 +135,39 @@ private fun ContentPoligono() {
                 )
             }
 
+            Text(
+                text = "Ingrese la base o el lado (cm)",
+                color = white,
+                fontFamily = FontFamily.Monospace,
+                textAlign = TextAlign.Center,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(top = 40.dp)
+            )
+
             CustomTextField(
                 value = baseLado.toString(),
                 onValueChange = { newValue ->
-                    baseLado = newValue.toIntOrNull() ?: 0
+                    baseLado = (newValue.toDoubleOrNull() ?: 0) as Double
                 },
                 isEnabled = true,
                 label = "Base / Lado (cm)",
                 modifier = Modifier.padding(top = 20.dp)
             )
 
+
+            Text(
+                text = "Ingrese la altura (cm)",
+                color = white,
+                fontFamily = FontFamily.Monospace,
+                textAlign = TextAlign.Center,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(top = 40.dp)
+            )
             CustomTextField(
                 value = altura.toString(),
                 onValueChange = { newValue ->
-                    altura = newValue.toIntOrNull() ?: 0 },
+                    altura = (newValue.toDoubleOrNull() ?: 0) as Double
+                },
                 isEnabled = botonSeleccionado != "square",
                 label = "Altura (cm)",
                 modifier = Modifier.padding(top = 20.dp)
@@ -150,23 +175,43 @@ private fun ContentPoligono() {
 
             if (botonSeleccionado == "square") altura = baseLado
 
-//            ElevatedButton(
-//                onClick = {
-//                    areaPoligono = areaPoligono(baseLado, altura)
-//                },
-//                colors = ButtonDefaults.elevatedButtonColors(
-//                    containerColor = secondary_color,
-//                    contentColor = card_background_color
-//                ),
-//                modifier = Modifier.padding(top = 20.dp, end = 15.dp, start = 15.dp)
-//                    .fillMaxWidth()
-//            ) {
-//                Text("Comprobar")
-//            }
+
+
+            ElevatedButton(
+                onClick = {
+                    areaPoligonoString = areaPoligono(baseLado, altura, botonSeleccionado)
+                },
+                colors = ButtonDefaults.elevatedButtonColors(
+                    containerColor = secondary_color,
+                    contentColor = card_background_color
+                ),
+                modifier = Modifier.padding(top = 20.dp, end = 15.dp, start = 15.dp)
+                    .fillMaxWidth()
+            ) {
+                Text("Comprobar")
+            }
+
+            Text(
+                text = areaPoligonoString,
+                color = white,
+                fontFamily = FontFamily.Monospace,
+                textAlign = TextAlign.Center,
+                fontSize = 26.sp,
+                modifier = Modifier.padding(top = 20.dp)
+            )
         }
     }
 }
 
-//fun areaPoligono(base: Double, altura: Double){
-//
-//}
+fun areaPoligono(baseLado: Double, altura: Double, botonSeleccionado: String): String{
+
+    var areaPoligono: Double = 0.00
+
+    when (botonSeleccionado){
+        "square" -> areaPoligono = baseLado * baseLado
+        "rectangle" -> areaPoligono = baseLado * altura
+        "triangle" -> areaPoligono = baseLado * (altura / 2)
+    }
+
+    return "El area de tu poligono es $areaPoligono"
+}
