@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.R
 import com.zn.challengebookcompose.carrera.componentes.BotonCorrerSaltar
 import com.zn.challengebookcompose.carrera.componentes.CardCarrera
@@ -71,7 +72,10 @@ class CarreraActivity : ComponentActivity() {
 private fun ViewContainer() {
     val context = LocalContext.current
     Scaffold(
-        topBar = { BarraSuperior("Carrera de obstáculos", card_background_color) },
+        topBar = { BarraSuperior("Carrera de obstáculos", card_background_color, onHomeClick = {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }) },
         content = {
             ContentCarrera(onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) })
         }

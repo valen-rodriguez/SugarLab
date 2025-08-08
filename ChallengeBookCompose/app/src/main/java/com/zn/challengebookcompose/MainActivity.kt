@@ -21,8 +21,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.anagrama.AnagramaActivity
 import com.zn.challengebookcompose.carrera.CarreraActivity
+import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.fizzbuzz.FizzBuzzActivity
 import com.zn.challengebookcompose.poligono.PoligonoActivity
+import com.zn.challengebookcompose.rps.RpsActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperiorMenu
@@ -40,7 +42,10 @@ class MainActivity : ComponentActivity() {
                 onFizzbuzz = { context.startActivity(Intent(context, FizzBuzzActivity::class.java)) },
                 onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) },
                 onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) },
-                onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))}
+                onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
+                onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))},
+                onRps = { context.startActivity(Intent(context, RpsActivity::class.java)) }
+
 
             )
         }
@@ -53,6 +58,8 @@ private fun ViewContainer(
     onFizzbuzz:() -> Unit,
     onPoligono:() -> Unit,
     onCarrera:() -> Unit,
+    onConjuntos:() -> Unit,
+    onRps:() -> Unit,
     onAnagrama:() -> Unit
 ) {
     Scaffold(
@@ -101,16 +108,16 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Anagrama",
+                    texto = "Conjuntos",
                     color = card_background_color,
-                    onClick = onAnagrama,
+                    onClick = onConjuntos,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 
                 BotonMenu(
-                    texto = "Anagrama",
+                    texto = "Piedra, Papel o Tijeras",
                     color = card_background_color,
-                    onClick = onAnagrama,
+                    onClick = onRps,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 

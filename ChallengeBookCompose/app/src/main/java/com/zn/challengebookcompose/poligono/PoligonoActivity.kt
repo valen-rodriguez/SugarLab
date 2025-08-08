@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.R
 import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.poligono.componentes.BotonFigura
@@ -63,7 +64,10 @@ class PoligonoActivity : ComponentActivity() {
     private fun ViewContainer() {
         val context = LocalContext.current
         Scaffold(
-            topBar = { BarraSuperior("Poligono", card_background_color) },
+            topBar = { BarraSuperior("Poligono", card_background_color,onHomeClick = {
+                val intent = Intent(context, MainActivity::class.java)
+                context.startActivity(intent)
+            }) },
             content = {
                 ContentPoligono(onCarrera = {
                     context.startActivity(Intent(context, CarreraActivity::class.java)

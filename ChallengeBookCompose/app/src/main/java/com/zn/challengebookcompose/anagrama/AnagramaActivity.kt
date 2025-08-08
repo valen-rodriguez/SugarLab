@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.anagrama.componentes.CardEsAnagrama
 import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.ui.theme.background_color
@@ -40,10 +41,26 @@ class AnagramaActivity : ComponentActivity() {
 private fun ViewContainer() {
     val context = LocalContext.current
     Scaffold(
-        topBar = { BarraSuperior("Anagrama", card_background_color) },
+        topBar = {
+            BarraSuperior(
+                "Anagrama",
+                card_background_color,
+                onHomeClick = {
+                    val intent = Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
+                }
+            )
+        },
         content = {
             ContentAnagrama(
-                onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) }
+                onPoligono = {
+                    context.startActivity(
+                        Intent(
+                            context,
+                            PoligonoActivity::class.java
+                        )
+                    )
+                }
             )
         }
     )
@@ -65,7 +82,9 @@ private fun ContentAnagrama(
                 texto = "Siguiente Ejercicio",
                 color = card_background_color,
                 onClick = onPoligono,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 40.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 10.dp, vertical = 40.dp),
             )
         }
     }
