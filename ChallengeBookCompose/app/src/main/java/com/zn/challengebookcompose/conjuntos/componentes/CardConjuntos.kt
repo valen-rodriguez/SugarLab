@@ -72,11 +72,11 @@
 //
 //
 //                val primerArray = Arreglos(
-//                    "Ingrese el Primer Arreglo separando todo con una coma"
+//                    "Ingrese el Primer Arreglo separando con una coma"
 //                )
 //
 //                val segundoArray = Arreglos(
-//                    "Ingrese el Segundo Arreglo separando todo con una coma"
+//                    "Ingrese el Segundo Arreglo separando con una coma"
 //                )
 //
 //                var isComun by remember { mutableIntStateOf(10) }
