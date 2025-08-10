@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.anagrama.AnagramaActivity
+import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.fizzbuzz.FizzBuzzActivity
@@ -44,6 +45,7 @@ class MainActivity : ComponentActivity() {
                 onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) },
                 onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
                 onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))},
+                onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))},
                 onRps = { context.startActivity(Intent(context, RpsActivity::class.java)) }
 
 
@@ -60,6 +62,7 @@ private fun ViewContainer(
     onCarrera:() -> Unit,
     onConjuntos:() -> Unit,
     onRps:() -> Unit,
+    onBatalla:() -> Unit,
     onAnagrama:() -> Unit
 ) {
     Scaffold(
@@ -118,6 +121,13 @@ private fun ViewContainer(
                     texto = "Piedra, Papel o Tijeras",
                     color = card_background_color,
                     onClick = onRps,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                )
+
+                BotonMenu(
+                    texto = "Clash Royale",
+                    color = card_background_color,
+                    onClick = onBatalla,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 

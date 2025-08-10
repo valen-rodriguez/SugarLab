@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBookCompose">
         <activity
+            android:name=".batalla.BatallaActivity"
+            android:exported="false" />
+        <activity
             android:name=".rps.RpsActivity"
             android:exported="false" />
         <activity
