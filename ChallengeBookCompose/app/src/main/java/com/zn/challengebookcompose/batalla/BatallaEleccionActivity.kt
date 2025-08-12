@@ -36,6 +36,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -97,9 +98,6 @@ fun ContentBatalla() {
 
         val cartasSeleccionadasTemporales = remember { mutableStateListOf<Carta>() }
 
-        val jugadorActualCartas = if (turnoJugador == 1) cartasJugador1 else cartasJugador2
-
-
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -127,6 +125,19 @@ fun ContentBatalla() {
 
                 //elixir disponible
                 var elixirJugadorActual by remember { (mutableIntStateOf(25)) }
+
+
+                Text(
+                    text = "Elegí tu mazo ¡El jugador con mayor estadísticas gana!\n" +
+                            "(no te quedes sin elixir)",
+                    color = white,
+                    fontFamily = FontFamily.Monospace,
+                    textAlign = TextAlign.Center,
+                    fontSize = 16.sp,
+
+                    modifier = Modifier.padding(10.dp)
+                )
+
 
                 //elixir
                 Row(
@@ -165,7 +176,6 @@ fun ContentBatalla() {
                         .background(background_color)
                         .padding(5.dp)
                 ) {
-
                     //murcielago
                     BotonCarta(
                         icon = painterResource(id = R.drawable.murcielagos),

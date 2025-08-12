@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -36,17 +35,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.R
-import com.zn.challengebookcompose.carrera.CarreraActivity
+import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.rps.componentes.BotonEleccion
 import com.zn.challengebookcompose.rps.componentes.quienGana
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
-import com.zn.challengebookcompose.ui.theme.componentesgenerales.TextoNormal
+import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
 import com.zn.challengebookcompose.ui.theme.secondary_color
 import com.zn.challengebookcompose.ui.theme.white
 
@@ -74,12 +71,16 @@ private fun ViewContainer() {
                 context.startActivity(intent)
             })
         },
-        content = { ContentRps() }
+        content = { ContentRps(
+            onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))}
+            ) }
     )
 }
 
 @Composable
-private fun ContentRps() {
+private fun ContentRps(
+    onBatalla:() -> Unit
+) {
 
     var player1Selection by remember { mutableStateOf("R") }
     var player2Selection by remember { mutableStateOf("R") }
@@ -247,6 +248,13 @@ private fun ContentRps() {
                 textAlign = TextAlign.Center,
                 fontSize = 24.sp,
                 modifier = Modifier.padding(top = 30.dp)
+            )
+
+            BotonMenu(
+                texto = "Siguiente Ejercicio",
+                color = card_background_color,
+                onClick = onBatalla,
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp, vertical = 40.dp),
             )
 
         }
