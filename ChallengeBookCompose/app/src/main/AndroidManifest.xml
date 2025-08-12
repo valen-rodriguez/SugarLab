@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeBookCompose">
         <activity
+            android:name=".challengebook2.Menu2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".challengebook2.calculadora.CalculadoraActivity"
+            android:exported="false" />
+        <activity
             android:name=".batalla.BatallaActivity"
             android:exported="false" />
         <activity
