@@ -19,10 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.zn.challengebookcompose.anagrama.AnagramaActivity
 import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
+import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.rps.RpsActivity
@@ -42,7 +42,7 @@ class Menu2Activity : ComponentActivity() {
             ViewContainer(
                 onCalculadora = { context.startActivity(Intent(context, CalculadoraActivity::class.java)) },
                 onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) },
-                onAnagrama = { context.startActivity(Intent(context, AnagramaActivity::class.java)) },
+                onPokemon = { context.startActivity(Intent(context, PokemonActivity::class.java)) },
                 onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
                 onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))},
                 onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))},
@@ -63,7 +63,7 @@ private fun ViewContainer(
     onConjuntos:() -> Unit,
     onRps:() -> Unit,
     onBatalla:() -> Unit,
-    onAnagrama:() -> Unit
+    onPokemon:() -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -90,9 +90,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Anagrama",
+                    texto = "Pokemon",
                     color = card_background_color,
-                    onClick = onAnagrama,
+                    onClick = onPokemon,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 

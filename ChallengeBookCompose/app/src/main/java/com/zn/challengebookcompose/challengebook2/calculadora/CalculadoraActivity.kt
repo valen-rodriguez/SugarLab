@@ -77,7 +77,7 @@ private fun ContentCalculadora() {
 
     var uriArchivoSeleccionado by remember { mutableStateOf<Uri?>(null) }
     var contenidoArchivo by remember { mutableStateOf<List<String>?>(null) }
-    var resultado by remember { mutableStateOf("Seleccione un archivo para ver su resultado")}
+    var resultado by remember { mutableStateOf("+1")}
 
     val context = LocalContext.current
     val contentResolver = context.contentResolver
@@ -143,7 +143,7 @@ private fun ContentCalculadora() {
 
 
             resultado = when (resultadoContenido){
-                null -> "Error en la lectura del archivo,\n revise si tiene inchorencias matemáticas como la división por 0"
+                null -> "Error en la lectura del archivo,\n revise si tiene incoherencias matemáticas como la división por 0"
                 else -> "El resultado de las cuentas del archivo es $resultadoContenido"
             }
 

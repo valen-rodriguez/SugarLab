@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -41,7 +42,7 @@ android {
 
 dependencies {
 
-
+    implementation("io.coil-kt:coil-compose:2.6.0")
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation ("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation(libs.androidx.core.ktx)
