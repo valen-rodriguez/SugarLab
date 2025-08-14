@@ -26,12 +26,10 @@ import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivit
 import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
 import com.zn.challengebookcompose.challengebook2.zodiacochino.ZodiacoChinoActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
-import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.rps.RpsActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
-import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperiorMenu
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
 
 
