@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
@@ -29,6 +30,7 @@ import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.rps.RpsActivity
 import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
+import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperior
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BarraSuperiorMenu
 import com.zn.challengebookcompose.ui.theme.componentesgenerales.BotonMenu
 
@@ -66,13 +68,13 @@ private fun ViewContainer(
     onBatalla:() -> Unit,
     onPokemon:() -> Unit
 ) {
+    val context = LocalContext.current
+
     Scaffold(
-        topBar = {
-            BarraSuperiorMenu(
-                titulo = "ChallengeBook",
-                backgroundColor = card_background_color
-            )
-        }
+        topBar = { BarraSuperior("Challenge Book 2", card_background_color,onHomeClick = {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
