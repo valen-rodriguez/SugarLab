@@ -23,6 +23,7 @@ import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
 import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
+import com.zn.challengebookcompose.challengebook2.zodiacochino.ZodiacoChinoActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.poligono.PoligonoActivity
 import com.zn.challengebookcompose.rps.RpsActivity
@@ -41,7 +42,7 @@ class Menu2Activity : ComponentActivity() {
 
             ViewContainer(
                 onCalculadora = { context.startActivity(Intent(context, CalculadoraActivity::class.java)) },
-                onPoligono = { context.startActivity(Intent(context, PoligonoActivity::class.java)) },
+                onSexagenario = { context.startActivity(Intent(context, ZodiacoChinoActivity::class.java)) },
                 onPokemon = { context.startActivity(Intent(context, PokemonActivity::class.java)) },
                 onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
                 onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))},
@@ -58,7 +59,7 @@ class Menu2Activity : ComponentActivity() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 private fun ViewContainer(
     onCalculadora:() -> Unit,
-    onPoligono:() -> Unit,
+    onSexagenario:() -> Unit,
     onCarrera:() -> Unit,
     onConjuntos:() -> Unit,
     onRps:() -> Unit,
@@ -97,9 +98,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Poligono",
+                    texto = "Sexagenario Chino",
                     color = card_background_color,
-                    onClick = onPoligono,
+                    onClick = onSexagenario,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 

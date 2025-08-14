@@ -17,4 +17,12 @@ val track_inactive_color = Color(0xFF93DA97)
 val track_active_color = Color(0xFFE8FFD7)
 val color_hint = Color(0xFF6A9C89)
 var white = Color(0xFFFFFFFF)
-var gray = Color(0xFF8D8D8D)
+var gray = Color(0xFFA1A1A1)
+
+
+
+var madera = Color(0xFFFFBD6A)
+var fuego = Color(0xFFFF3200)
+var tierra = Color(0xFF4E3B31)
+var metal = Color(0xFF949494)
+var agua = Color(0xFF57A1FF)
