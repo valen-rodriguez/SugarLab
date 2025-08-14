@@ -90,6 +90,8 @@ private fun ContentBatalla(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
+        if (pokemon1 != null && pokemon2 != null) {
         // Carta del Jugador 1
         PokemonCard(
             pokemon = pokemon1,
@@ -108,7 +110,6 @@ private fun ContentBatalla(
 
         val ganador = quienGana(pokemon1, pokemon2).split(",")
 
-
         //ganador[0] = jugador 1 o 2
         //ganador[1] = pokemon
         //ganador[2] = daño hecho
@@ -117,23 +118,26 @@ private fun ContentBatalla(
         Text(
             text = "El ganador es el Jugador ${ganador[0]}!\n" +
                     "Su ${ganador[1].uppercase()} hizo ${ganador[2]} puntos de daño\n" +
-                    "Su efectividad fue ${ganador[3]} contra ${pokemon2?.nombre?.uppercase()}",
+                    "Su efectividad fue ${ganador[3]} contra ${pokemon2.nombre.uppercase()}",
             color = Color.White,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily.Monospace,
             modifier = Modifier.padding(top = 10.dp)
         )
+        } else {
+            Text(
+                text = "No se recibieron los datos de los Pokémon",
+                color = Color.Red,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
     }
-
-
 }
 
 @Composable
 fun PokemonCard(pokemon: PokemonBatalla?, title: String) {
-
-
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
