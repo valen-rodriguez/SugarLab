@@ -22,6 +22,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -83,6 +87,8 @@ private fun ContentBatalla(
     pokemon1: PokemonBatalla?, pokemon2: PokemonBatalla?
 ){
 
+    var resultText by remember {mutableStateOf("")}
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -108,17 +114,25 @@ private fun ContentBatalla(
         )
 
 
-        val ganador = quienGana(pokemon1, pokemon2).split(",")
+        val ganador = quienGana(pokemon1, pokemon2)
 
         //ganador[0] = jugador 1 o 2
         //ganador[1] = pokemon
         //ganador[2] = daño hecho
         //ganador[3] = efectividad
 
+            if (ganador.contains(",")){
+                ganador.split(",")
+
+                resultText = "El ganador es el Jugador ${ganador[0]}!\n" +
+                        "Su ${ganador[1].uppercase()} hizo ${ganador[2]} puntos de daño\n" +
+                        "Su efectividad fue ${ganador[3]} contra ${pokemon2.nombre.uppercase()}"
+            }else{
+                resultText = "Empate"
+            }
+
         Text(
-            text = "El ganador es el Jugador ${ganador[0]}!\n" +
-                    "Su ${ganador[1].uppercase()} hizo ${ganador[2]} puntos de daño\n" +
-                    "Su efectividad fue ${ganador[3]} contra ${pokemon2.nombre.uppercase()}",
+            text = resultText,
             color = Color.White,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
