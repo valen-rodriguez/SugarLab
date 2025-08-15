@@ -82,6 +82,7 @@ private fun ViewContainer(pokemon1: PokemonBatalla?, pokemon2: PokemonBatalla?) 
 }
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 private fun ContentBatalla(
     pokemon1: PokemonBatalla?, pokemon2: PokemonBatalla?
