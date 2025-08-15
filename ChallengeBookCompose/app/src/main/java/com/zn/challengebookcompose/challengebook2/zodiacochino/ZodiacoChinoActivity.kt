@@ -138,7 +138,7 @@ fun ContentSexagenario() {
                     //se calcula que signo corresponde
                     val signo = signoChino(yearInt).split(",")
 
-                    resultText = "${signo[0]} ${signo[1]}"
+                    resultText = "${signo[1]} ${signo[0]}"
                     val indiceElemento = signo[2].trim().toInt()
                     val indiceAnimal = signo[3].trim().toInt()
 
