@@ -51,7 +51,7 @@ class IterationActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
+            ViewContainer()
         }
     }
 }
@@ -117,6 +117,8 @@ fun ContentIteration() {
 
             ElevatedButton(
                 onClick = {
+                    empezar = false
+
                     numeroFor = ""
                     numeroWhile = ""
                     numeroDoWhile = ""
@@ -144,17 +146,18 @@ fun ContentIteration() {
             }
 
 
-            //ciclo for
-            if (empezar){
-                LaunchedEffect(Unit){
+            if (empezar) {
+                LaunchedEffect(empezar) {
+                    // FOR
                     launch {
                         for (i in 1..30) {
                             numeroFor = i.toString()
                             delay(150)
                         }
-                        tiempoFor = (150*30).toString()
+                        tiempoFor = (150*30).toString() + "ms"
                     }
 
+                    // WHILE
                     launch {
                         var j = 1
                         while (j <= 30) {
@@ -162,20 +165,22 @@ fun ContentIteration() {
                             delay(150)
                             j++
                         }
-                        tiempoWhile = (150*30).toString()
+                        tiempoWhile = (150*30).toString() + "ms"
                     }
 
+                    // DO-WHILE
                     launch {
                         var k = 1
-                        do{
+                        do {
                             numeroDoWhile = k.toString()
-                            delay(230)
+                            delay(160)
                             k++
-                        }while (k <= 30)
-                        tiempoDoWhile = (230*30).toString()
+                        } while (k <= 30)
+                        tiempoDoWhile = (160*30).toString() + "ms"
                     }
 
-                    launch{
+                    // RECURSION
+                    launch {
                         suspend fun contarRecursivo(n: Int) {
                             if (n > 30) return
                             numeroRecursion = n.toString()
@@ -183,7 +188,7 @@ fun ContentIteration() {
                             contarRecursivo(n + 1)
                         }
                         contarRecursivo(1)
-                        tiempoRecursion = (250*30).toString()
+                        tiempoRecursion = (200*30).toString() + "ms"
                         empezar = false
                     }
                 }
@@ -207,7 +212,7 @@ fun ContentIteration() {
                 ) {
                     Card(
                         colors = CardDefaults.cardColors(containerColor = card_background_color),
-                        modifier = Modifier.size(width = 150.dp, 150.dp),
+                        modifier = Modifier.size(width = 150.dp, 180.dp),
                     ) {
                         Column(
                             modifier = Modifier
@@ -233,10 +238,10 @@ fun ContentIteration() {
                                 color = white,
                                 fontFamily = FontFamily.Monospace,
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp,
+                                fontSize = 30.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp)
+                                    .padding(start = 10.dp, end = 10.dp,  top = 40.dp, bottom = 5.dp)
                             )
 
                             Text(
@@ -247,7 +252,7 @@ fun ContentIteration() {
                                 fontSize = 16.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp, vertical = 40.dp)
+                                    .padding(horizontal = 10.dp, vertical = 5.dp)
                             )
                         }
                     }
@@ -263,7 +268,7 @@ fun ContentIteration() {
                 ) {
                     Card(
                         colors = CardDefaults.cardColors(containerColor = card_background_color),
-                        modifier = Modifier.size(width = 150.dp, 150.dp)
+                        modifier = Modifier.size(width = 150.dp, 180.dp)
                     ) {
                         Column(
                             modifier = Modifier
@@ -290,10 +295,10 @@ fun ContentIteration() {
                                 color = white,
                                 fontFamily = FontFamily.Monospace,
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp,
+                                fontSize = 30.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp, vertical = 20.dp)
+                                    .padding(start = 10.dp, end = 10.dp, top = 20.dp)
                             )
                             Text(
                                 text = tiempoWhile,
@@ -303,7 +308,7 @@ fun ContentIteration() {
                                 fontSize = 16.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp)
+                                    .padding(horizontal = 10.dp, vertical = 5.dp)
                             )
                         }
                     }
@@ -328,7 +333,7 @@ fun ContentIteration() {
                 ) {
                     Card(
                         colors = CardDefaults.cardColors(containerColor = card_background_color),
-                        modifier = Modifier.size(width = 150.dp, 150.dp),
+                        modifier = Modifier.size(width = 150.dp, 180.dp),
                     ) {
                         Column(
                             modifier = Modifier
@@ -354,10 +359,10 @@ fun ContentIteration() {
                                 color = white,
                                 fontFamily = FontFamily.Monospace,
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp,
+                                fontSize = 30.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp, vertical = 30.dp)
+                                    .padding(end = 10.dp, start = 10.dp, top = 30.dp, bottom = 5.dp)
                             )
 
                             Text(
@@ -368,7 +373,7 @@ fun ContentIteration() {
                                 fontSize = 16.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp)
+                                    .padding(horizontal = 10.dp, vertical = 5.dp)
                             )
                         }
                     }
@@ -384,7 +389,7 @@ fun ContentIteration() {
                 ) {
                     Card(
                         colors = CardDefaults.cardColors(containerColor = card_background_color),
-                        modifier = Modifier.size(width = 150.dp, 150.dp)
+                        modifier = Modifier.size(width = 150.dp, 180.dp)
                     ) {
                         Column(
                             modifier = Modifier
@@ -411,10 +416,10 @@ fun ContentIteration() {
                                 color = white,
                                 fontFamily = FontFamily.Monospace,
                                 textAlign = TextAlign.Center,
-                                fontSize = 16.sp,
+                                fontSize = 30.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp, vertical = 30.dp)
+                                    .padding(start = 10.dp, end = 10.dp, top = 30.dp, bottom = 5.dp)
                             )
 
                             Text(
@@ -425,7 +430,7 @@ fun ContentIteration() {
                                 fontSize = 16.sp,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(horizontal = 10.dp)
+                                    .padding(horizontal = 10.dp, vertical = 5.dp)
                             )
                         }
                     }

@@ -21,8 +21,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.MainActivity
 import com.zn.challengebookcompose.batalla.BatallaActivity
-import com.zn.challengebookcompose.carrera.CarreraActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
+import com.zn.challengebookcompose.challengebook2.iterationmaster.IterationActivity
 import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
 import com.zn.challengebookcompose.challengebook2.zodiacochino.ZodiacoChinoActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
@@ -45,7 +45,7 @@ class Menu2Activity : ComponentActivity() {
                 onSexagenario = { context.startActivity(Intent(context, ZodiacoChinoActivity::class.java)) },
                 onPokemon = { context.startActivity(Intent(context, PokemonActivity::class.java)) },
                 onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
-                onCarrera = { context.startActivity(Intent(context, CarreraActivity::class.java))},
+                onIteration = { context.startActivity(Intent(context, IterationActivity::class.java))},
                 onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))},
                 onRps = { context.startActivity(Intent(context, RpsActivity::class.java)) }
 
@@ -60,7 +60,7 @@ class Menu2Activity : ComponentActivity() {
 private fun ViewContainer(
     onCalculadora:() -> Unit,
     onSexagenario:() -> Unit,
-    onCarrera:() -> Unit,
+    onIteration:() -> Unit,
     onConjuntos:() -> Unit,
     onRps:() -> Unit,
     onBatalla:() -> Unit,
@@ -105,9 +105,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Carrera de Obstáculos",
+                    texto = "Iteration Master",
                     color = card_background_color,
-                    onClick = onCarrera,
+                    onClick = onIteration,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 
