@@ -24,6 +24,7 @@ import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
 import com.zn.challengebookcompose.challengebook2.iterationmaster.IterationActivity
 import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
+import com.zn.challengebookcompose.challengebook2.truco.TratoActivity
 import com.zn.challengebookcompose.challengebook2.zodiacochino.ZodiacoChinoActivity
 import com.zn.challengebookcompose.conjuntos.ConjuntosActivity
 import com.zn.challengebookcompose.rps.RpsActivity
@@ -44,7 +45,7 @@ class Menu2Activity : ComponentActivity() {
                 onCalculadora = { context.startActivity(Intent(context, CalculadoraActivity::class.java)) },
                 onSexagenario = { context.startActivity(Intent(context, ZodiacoChinoActivity::class.java)) },
                 onPokemon = { context.startActivity(Intent(context, PokemonActivity::class.java)) },
-                onConjuntos = { context.startActivity(Intent(context, ConjuntosActivity::class.java)) },
+                onTruco = { context.startActivity(Intent(context, TratoActivity::class.java)) },
                 onIteration = { context.startActivity(Intent(context, IterationActivity::class.java))},
                 onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))},
                 onRps = { context.startActivity(Intent(context, RpsActivity::class.java)) }
@@ -61,7 +62,7 @@ private fun ViewContainer(
     onCalculadora:() -> Unit,
     onSexagenario:() -> Unit,
     onIteration:() -> Unit,
-    onConjuntos:() -> Unit,
+    onTruco:() -> Unit,
     onRps:() -> Unit,
     onBatalla:() -> Unit,
     onPokemon:() -> Unit
@@ -112,9 +113,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Conjuntos",
+                    texto = "Truco o Trato",
                     color = card_background_color,
-                    onClick = onConjuntos,
+                    onClick = onTruco,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 
