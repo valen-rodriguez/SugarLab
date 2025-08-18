@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.zn.challengebookcompose.ui.theme.background_color
 import com.zn.challengebookcompose.ui.theme.card_background_color
 import com.zn.challengebookcompose.ui.theme.color_hint
 import com.zn.challengebookcompose.ui.theme.secondary_color
@@ -26,7 +25,8 @@ data class Carta(
 )
 
 fun generarCartas(): List<Carta> {
-    val simbolos = listOf("🎃", "🕸️", "🕷️", "🍬", "🍭", "🍫", "💀", "☠️", "👻", "👽", "👹", "🍪", "🍩", "🍒")
+    val simbolos = listOf("🎃", "🕸️")
+        //"🕷️", "🍬", "🍭", "🍫", "💀", "☠️", "👻", "👽", "👹", "🍪", "🍩", "🍒")
     val pares = simbolos + simbolos // duplicamos para hacer pares
     return pares
         .shuffled()
