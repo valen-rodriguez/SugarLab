@@ -20,9 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.zn.challengebookcompose.MainActivity
-import com.zn.challengebookcompose.batalla.BatallaActivity
 import com.zn.challengebookcompose.challengebook2.calculadora.CalculadoraActivity
 import com.zn.challengebookcompose.challengebook2.iterationmaster.IterationActivity
+import com.zn.challengebookcompose.challengebook2.maquinaexpendedora.MaquinaActivity
 import com.zn.challengebookcompose.challengebook2.pokemon.PokemonActivity
 import com.zn.challengebookcompose.challengebook2.robot.RobotActivity
 import com.zn.challengebookcompose.challengebook2.truco.TratoActivity
@@ -46,7 +46,7 @@ class Menu2Activity : ComponentActivity() {
                 onPokemon = { context.startActivity(Intent(context, PokemonActivity::class.java)) },
                 onTruco = { context.startActivity(Intent(context, TratoActivity::class.java)) },
                 onIteration = { context.startActivity(Intent(context, IterationActivity::class.java))},
-                onBatalla = { context.startActivity(Intent(context, BatallaActivity::class.java))},
+                onMaquina = { context.startActivity(Intent(context, MaquinaActivity::class.java))},
                 onRobot = { context.startActivity(Intent(context, RobotActivity::class.java)) }
 
 
@@ -63,7 +63,7 @@ private fun ViewContainer(
     onIteration:() -> Unit,
     onTruco:() -> Unit,
     onRobot:() -> Unit,
-    onBatalla:() -> Unit,
+    onMaquina:() -> Unit,
     onPokemon:() -> Unit
 ) {
     val context = LocalContext.current
@@ -126,9 +126,9 @@ private fun ViewContainer(
                 )
 
                 BotonMenu(
-                    texto = "Clash Royale",
+                    texto = "Maquina Expendedora",
                     color = card_background_color,
-                    onClick = onBatalla,
+                    onClick = onMaquina,
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 )
 
