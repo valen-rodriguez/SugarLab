@@ -136,7 +136,7 @@ fun ContentMaquinaExpendedora() {
                     dineroReal = dineroString.toDoubleOrNull()
 
                     if (dineroReal != null && dineroReal!! > 0.00) {
-                        dinero = dineroReal!!
+                        dinero += dineroReal!!
                     }
                 },
                 colors = ButtonDefaults.elevatedButtonColors(
@@ -221,7 +221,7 @@ fun ContentMaquinaExpendedora() {
                     title = { Text(text = "Compra exitosa!") },
                     text = { Text("Ha comprado ${productoSeleccionado?.name}, su nuevo saldo es:  $$dinero") },
                     confirmButton = {
-                        Button(onClick = { alertaDinero = false }) {
+                        Button(onClick = { alertaCompra = false }) {
                             Text("Aceptar")
                         }
                     }
